@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.example</groupId>
     <artifactId>k8-service-test</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2</version>
     <name>k8-service-test</name>
     <description>k8-service-test</description>
     <url/>
@@ -28,6 +28,7 @@
     </scm>
     <properties>
         <java.version>21</java.version>
+        <docker.username>zloymumu</docker.username>
     </properties>
     <dependencies>
         <dependency>
@@ -47,6 +48,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>docker.io/${docker.username}/${project.artifactId}:${project.version}</name>
+                    </image>
+                </configuration>
             </plugin>
         </plugins>
     </build>
